@@ -25,7 +25,6 @@ extern "C" {
     #include "fresh.h"
     #include "Lyra2RE.h"
     #include "Lyra2.h"
-    #include "Lyra2REV2.h"
     #include "Lyra2Z.h"
 }
 
@@ -572,26 +571,6 @@ NAN_METHOD(lyra2re) {
     );
 }
 
-NAN_METHOD(lyra2re2) {
-    NanScope();
-
-    if (args.Length() < 1)
-        return THROW_ERROR_EXCEPTION("You must provide one argument.");
-
-    Local<Object> target = args[0]->ToObject();
-
-    if(!Buffer::HasInstance(target))
-        return THROW_ERROR_EXCEPTION("Argument should be a buffer object.");
-
-    char * input = Buffer::Data(target);
-    char output[32];
-
-    lyra2re2_hash(input, output, 8192);
-
-    NanReturnValue(
-        NanNewBufferHandle(output, 32)
-    );
-}
 
 NAN_METHOD(lyra2z) {
     NanScope();
@@ -637,7 +616,6 @@ void init(Handle<Object> exports) {
     exports->Set(NanNew<String>("x15"), NanNew<FunctionTemplate>(x15)->GetFunction());
     exports->Set(NanNew<String>("fresh"), NanNew<FunctionTemplate>(fresh)->GetFunction());
     exports->Set(NanNew<String>("lyra2re"), NanNew<FunctionTemplate>(lyra2re)->GetFunction());
-    exports->Set(NanNew<String>("lyra2re2"), NanNew<FunctionTemplate>(lyra2re2)->GetFunction());
     exports->Set(NanNew<String>("lyra2z"), NanNew<FunctionTemplate>(lyra2z)->GetFunction());
 }
 

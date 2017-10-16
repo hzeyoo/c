@@ -13,6 +13,7 @@
                 "bcrypt.c",
                 "groestl.c",
                 "blake.c",
+		"decred.c",   
                 "fugue.c",
                 "qubit.c",
                 "hefty1.c",

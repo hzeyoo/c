@@ -14,6 +14,7 @@ extern "C" {
     #include "x11.h"
     #include "groestl.h"
     #include "blake.h"
+    #include "decred.h"
     #include "fugue.h"
     #include "qubit.h"
     #include "hefty1.h"

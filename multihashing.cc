@@ -572,7 +572,7 @@ NAN_METHOD(lyra2re) {
     );
 }
 
-NAN_METHOD(lyra2rev2) {
+NAN_METHOD(lyra2re2) {
     NanScope();
 
     if (args.Length() < 1)
@@ -586,7 +586,7 @@ NAN_METHOD(lyra2rev2) {
     char * input = Buffer::Data(target);
     char output[32];
 
-    lyra2rev2_hash(input, output, 8192);
+    lyra2re2_hash(input, output, 8192);
 
     NanReturnValue(
         NanNewBufferHandle(output, 32)
@@ -637,7 +637,7 @@ void init(Handle<Object> exports) {
     exports->Set(NanNew<String>("x15"), NanNew<FunctionTemplate>(x15)->GetFunction());
     exports->Set(NanNew<String>("fresh"), NanNew<FunctionTemplate>(fresh)->GetFunction());
     exports->Set(NanNew<String>("lyra2re"), NanNew<FunctionTemplate>(lyra2re)->GetFunction());
-    exports->Set(NanNew<String>("lyra2rev2"), NanNew<FunctionTemplate>(lyra2rev2)->GetFunction());
+    exports->Set(NanNew<String>("lyra2re2"), NanNew<FunctionTemplate>(lyra2re2)->GetFunction());
     exports->Set(NanNew<String>("lyra2z"), NanNew<FunctionTemplate>(lyra2z)->GetFunction());
 }
 

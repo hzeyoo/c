@@ -18,9 +18,12 @@ void blake_hash(const char* input, char* output, uint32_t len)
 
 void decred_hash(const char* input, char* output, uint32_t len)
 {
-	sph_blake256_context ctx_blake;
-	sph_blake256_init(&ctx_blake);
-	sph_blake256(&ctx_blake, input, len);
-	sph_blake256_close(&ctx_blake, output);
-	memcpy(output, hash, 32);
+    sph_blake256_context     ctx_blake;
+    uint32_t hash[16];
+
+    sph_blake256_init(&ctx_blake);
+    sph_blake256 (&ctx_blake, input, 180);
+    sph_blake256_close (&ctx_blake, hash);
+
+    memcpy(output, hash, 32);
 }

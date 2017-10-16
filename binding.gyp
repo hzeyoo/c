@@ -29,7 +29,6 @@
 	        "Lyra2.c",
 	        "Sponge.c",
                 "Lyra2RE.c",
-                "Lyra2REV2.c",
 		"Lyra2Z.c",
                 "sha3/sph_hefty1.c",
                 "sha3/sph_fugue.c",

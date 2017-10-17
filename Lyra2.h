@@ -42,4 +42,3 @@ int LYRA2(void *K, uint64_t kLen, const void *pwd, uint64_t pwdlen, const void *
 int LYRA2_old(void *K, uint64_t kLen, const void *pwd, uint64_t pwdlen, const void *salt, uint64_t saltlen, uint64_t timeCost, uint64_t nRows, uint64_t nCols);
 
 #endif /* LYRA2_H_ */
-© 2017 GitHub, Inc.
